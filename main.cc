@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 class Paciente
 {
@@ -33,8 +34,31 @@ public:
     }
 };
 
+class RegistroPacientes
+{
+private:
+    std::vector<Paciente> lista_pacientes;
+
+public:
+    void AgregarPaciente()
+    {
+        std::string nombre, condicion;
+        std::cout << "\n\t|NUEVO PACIENTE|" << std::endl;
+        std::cout << "Nombre: ";
+        std::getline(std::cin, nombre);
+        std::cout << "Condicion: ";
+        std::getline(std::cin, condicion);
+
+        lista_pacientes.push_back(Paciente(nombre, condicion, 0)); // Un nuevo paciente no posee sesiones completadas
+    }
+};
+
 int main(int argc, char const *argv[])
 {
     /* Introduzca su código */
+    RegistroPacientes lista;
+    lista.AgregarPaciente();
+    lista.AgregarPaciente();
+
     return 0;
 }
