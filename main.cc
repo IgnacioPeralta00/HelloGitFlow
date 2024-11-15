@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 class Paciente
 {
@@ -13,9 +15,8 @@ public:
                                                                           nombre(_nombre), condicion(_condicion), sesiones_completadas(sesiones)
     {
     }
-
     // Metodos getter
-    std::string getNombre() 
+    std::string getNombre()
     {
         return this->nombre;
     }
@@ -40,6 +41,11 @@ private:
     std::vector<Paciente> lista_pacientes;
 
 public:
+    int GeneradorID()
+    {
+        return (rand() % 900 + 100);
+    }
+    
     void AgregarPaciente()
     {
         std::string nombre, condicion;
@@ -63,7 +69,6 @@ public:
             std::cout << "Sesiones completadas: " << p.getSesiones() << std::endl;
             std::cout << "-------------------------\n";
         }
-        
     }
 };
 
