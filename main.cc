@@ -15,7 +15,7 @@ public:
     }
 
     // Metodos getter
-    std::string getNombre()
+    std::string getNombre() 
     {
         return this->nombre;
     }
@@ -51,6 +51,20 @@ public:
 
         lista_pacientes.push_back(Paciente(nombre, condicion, 0)); // Un nuevo paciente no posee sesiones completadas
     }
+
+    void MostrarPacientes()
+    {
+        std::cout << "\n\t|INFO PACIENTES|" << std::endl;
+        std::cout << "-------------------------\n";
+        for (auto &p : lista_pacientes)
+        {
+            std::cout << "Nombre: " << p.getNombre() << std::endl;
+            std::cout << "Condicion: " << p.getCondicion() << std::endl;
+            std::cout << "Sesiones completadas: " << p.getSesiones() << std::endl;
+            std::cout << "-------------------------\n";
+        }
+        
+    }
 };
 
 int main(int argc, char const *argv[])
@@ -59,6 +73,7 @@ int main(int argc, char const *argv[])
     RegistroPacientes lista;
     lista.AgregarPaciente();
     lista.AgregarPaciente();
+    lista.MostrarPacientes();
 
     return 0;
 }
